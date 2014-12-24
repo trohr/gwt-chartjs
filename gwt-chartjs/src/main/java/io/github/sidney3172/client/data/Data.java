@@ -7,6 +7,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Data extends JavaScriptObject{
 
+	protected Data() {		
+	}
+	
     public final native void setValue(double value)/*-{
         this.value = value;
     }-*/;

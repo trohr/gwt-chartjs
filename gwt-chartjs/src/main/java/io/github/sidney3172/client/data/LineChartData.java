@@ -6,6 +6,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Created by sidney3172 on 13/08/14.
  */
 public class LineChartData extends JavaScriptObject{
+	
+	protected LineChartData(){
+	}
 
     public final native void setLabels(String[] label)/*-{
         this.labels = labels;

@@ -7,6 +7,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Dataset extends JavaScriptObject{
 
+	protected Dataset() {
+		
+	}
+	
     public final native void setLabel(String label)/*-{
         this.label = label;
     }-*/;

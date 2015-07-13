@@ -55,6 +55,7 @@ public class DataSelectionEvent extends GwtEvent<DataSelectionHandler> {
                 Series series1 = JavaScriptObject.createObject().cast();
                 series1.setValue(obj.get("value").isNumber().doubleValue());
                 series1.setColor(obj.get("fillColor").isString().stringValue());
+                series1.setColor(obj.get("label").isString().stringValue());
                 event.series.add(series1);
             }
         }

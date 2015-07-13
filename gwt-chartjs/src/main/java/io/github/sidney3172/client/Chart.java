@@ -287,5 +287,9 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
         else
             options.setProperty(MAINTAIN_ASPECT_RATIO, true);
     }
+    
+    public void setLegendTemplate(String template) {
+    	options.setProperty("legendTemplate", template);
+    }
 
 }

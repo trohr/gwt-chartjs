@@ -23,4 +23,20 @@ public class Series extends JavaScriptObject{
 	public final native void setColor(String color) /*-{
 		this.color = color;
 	}-*/;
+	
+	public final native String getHighlightColor() /*-{
+		return this.highlight;
+	}-*/;
+	
+	public final native void setHightlightColor(String value) /*-{
+		this.highlight = value;
+	}-*/;
+	
+	public final native String getLabel() /*-{
+		return this.label;
+	}-*/;
+	
+	public final native void setLabel(String value) /*-{
+		this.label = value;
+	}-*/;
 }

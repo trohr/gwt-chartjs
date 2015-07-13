@@ -14,7 +14,6 @@ public class DoughnutChart extends ChartWithScale {
 	@Override
 	public void draw() {
 		reload();
-		
 	}
 	
 	private native void drawDoughnut(JavaScriptObject data)/*-{
@@ -24,6 +23,8 @@ public class DoughnutChart extends ChartWithScale {
             nativeCanvas.destroy();
         }
 
+		canvas.width = 300;
+		canvas.height = 300;
         var options = this.@io.github.sidney3172.client.Chart::constructOptions()();
         nativeCanvas = new $wnd.Chart(canvas.getContext("2d")).Doughnut(data, options);
         this.@io.github.sidney3172.client.Chart::setNativeCanvas(Lcom/google/gwt/core/client/JavaScriptObject;)(nativeCanvas);
@@ -63,4 +64,7 @@ public class DoughnutChart extends ChartWithScale {
 		this.provider = provider;
 	}
 	
+	private void setLegend(String htmlLegend) {
+		
+	}
 }

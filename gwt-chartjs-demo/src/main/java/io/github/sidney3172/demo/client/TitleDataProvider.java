@@ -40,7 +40,7 @@ public class TitleDataProvider implements AreaChartDataProvider{
                     .create()
                     .withLabel("Sample label")
                     .withFillColor("rgba(220,220,220,0.5)")
-                    .withStoreColor("rgba(220,220,220,1)")
+                    .withStrokeColor("rgba(220,220,220,1)")
                     .withPointColor("rgba(220,220,220,1)")
                     .withPointStrokeColor("#fff")
                     .withData(getRandomDigits())

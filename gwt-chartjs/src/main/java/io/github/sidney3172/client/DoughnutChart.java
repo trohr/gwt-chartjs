@@ -11,20 +11,29 @@ public class DoughnutChart extends ChartWithScale {
 	
 	private PieChartDataProvider provider;
 	
+	public DoughnutChart() {
+		// default constructor
+	}
+	
+	public DoughnutChart(int width, int height) {
+		super(width, height);
+	}
+	
 	@Override
 	public void draw() {
 		reload();
 	}
 	
-	private native void drawDoughnut(JavaScriptObject data)/*-{
+	private native void drawDoughnut(JavaScriptObject data, int width, int height)/*-{
         canvas = this.@io.github.sidney3172.client.Chart::getNativeElement()();
         nativeCanvas = this.@io.github.sidney3172.client.Chart::getNativeCanvas()();
         if(nativeCanvas != null) {
             nativeCanvas.destroy();
         }
 
-		canvas.width = 300;
-		canvas.height = 300;
+		canvas.width = width;
+		canvas.height = height;
+		
         var options = this.@io.github.sidney3172.client.Chart::constructOptions()();
         nativeCanvas = new $wnd.Chart(canvas.getContext("2d")).Doughnut(data, options);
         this.@io.github.sidney3172.client.Chart::setNativeCanvas(Lcom/google/gwt/core/client/JavaScriptObject;)(nativeCanvas);
@@ -36,7 +45,7 @@ public class DoughnutChart extends ChartWithScale {
 	public void update() {
 		if(provider == null)
 			throw new NullPointerException("PieCharDataProvider is not initialized before invoking update()");
-		drawDoughnut(provider.getData());
+		drawDoughnut(provider.getData(), this.width, this.height);
 	}
 
 	@Override
@@ -47,12 +56,12 @@ public class DoughnutChart extends ChartWithScale {
 		//TODO: show loading
 		provider.reload(new AsyncCallback<JsArray<Series>>() {
 			
-			@Override
+			
 			public void onSuccess(JsArray<Series> result) {
-                drawDoughnut(result);
+                drawDoughnut(result, DoughnutChart.this.width, DoughnutChart.this.height);
 			}
 			
-			@Override
+			
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
 				

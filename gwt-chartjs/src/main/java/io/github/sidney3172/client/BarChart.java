@@ -10,19 +10,30 @@ public class BarChart extends ChartWithScale {
 	
 	private AreaChartDataProvider provider;
 	
+	public BarChart() {
+		// default constructor
+	}
+	
+	public BarChart(int width, int height) {
+		super(width, height);
+	}
+	
 	@Override
 	public void draw() {
 		reload();
 		
 	}
 	
-	private native void drawBar(JavaScriptObject data)/*-{
+	private native void drawBar(JavaScriptObject data, int width, int height)/*-{
         canvas = this.@io.github.sidney3172.client.Chart::getNativeElement()();
         nativeCanvas = this.@io.github.sidney3172.client.Chart::getNativeCanvas()();
         if(nativeCanvas != null) {
             nativeCanvas.destroy();
         }
-
+        
+		canvas.width = width;
+		canvas.height = height;
+		
         var options = this.@io.github.sidney3172.client.Chart::constructOptions()();
         nativeCanvas = new $wnd.Chart(canvas.getContext("2d")).Bar(data, options);
         this.@io.github.sidney3172.client.Chart::setNativeCanvas(Lcom/google/gwt/core/client/JavaScriptObject;)(nativeCanvas);
@@ -32,7 +43,7 @@ public class BarChart extends ChartWithScale {
 	public void update() {
 		if(provider == null)
 			throw new NullPointerException("PieCharDataProvider is not specified before invoking update()");
-        drawBar(provider.getData());
+        drawBar(provider.getData(), this.width, this.height);
 	}
 
 	@Override
@@ -43,12 +54,10 @@ public class BarChart extends ChartWithScale {
 		//TODO : show loading
 		provider.reload(new AsyncCallback<AreaChartData>() {
 			
-			@Override
 			public void onSuccess(AreaChartData result) {
-                drawBar(result);
+                drawBar(result, BarChart.this.width, BarChart.this.height);
 			}
 			
-			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
 				

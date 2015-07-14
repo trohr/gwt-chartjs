@@ -27,6 +27,9 @@ import java.util.List;
  */
 public abstract class Chart extends SimplePanel implements HasAnimationCompleteHandlers, HasClickHandlers,HasAnimation, HasDataSelectionEventHandlers, IsResponsive{
 
+	private static final int DEFAULT_WIDTH = 50;
+	private static final int DEFAULT_HEIGHT = 50;
+	
     private static Resources resources;
 
     protected ChartOption options = ChartOption.get();
@@ -34,7 +37,9 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
 	private CanvasElement canvas;
 	protected ChartStyle style;
     protected List<AnimationCallback> callbackList = new ArrayList<AnimationCallback>();
-	
+    
+    protected int width = DEFAULT_WIDTH;
+    protected int height = DEFAULT_HEIGHT;
 	
 	static{
 		resources = GWT.create(Resources.class);
@@ -44,14 +49,17 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
 	 * This constructor creates new chart instance with custom {@link ChartStyle}
 	 * @param style - new CssResource used for styling charts
 	 */
-	public Chart(ChartStyle style){
+	public Chart(ChartStyle style, int width, int height){
+		this.width = width;
+		this.height = height;
+		
 		setChartStyle(style);
         registerNativeAnimationHandlers();
 		canvas = Document.get().createCanvasElement();
 		getElement().appendChild(canvas);
         sinkEvents(Event.ONCLICK);
         addClickHandler(new ClickHandler() {
-            @Override
+            
             public void onClick(final ClickEvent clickEvent) {
                 JavaScriptObject obj = clickEvent.getNativeEvent().cast();
 
@@ -62,11 +70,19 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
         });
 	}
 	
+	public Chart(ChartStyle style) {
+		this(style, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	}
+	
 	/**
 	 * Constructor creates chart with default style
 	 */
+	public Chart(int width, int height) {
+		this(resources.chartStyle(), width, height);
+	}
+	
 	public Chart() {
-		this(resources.chartStyle());
+		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 
     private native JavaScriptObject getClickPoints(JavaScriptObject event, JavaScriptObject canvas)/*-{
@@ -145,7 +161,6 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
 		canvas.setHeight(height);
 	}
 	
-	@Override
 	public void addAnimationCompleteHandler(AnimationCompleteHandler handler) {
 		addHandler(handler, AnimationCompleteEvent.getType());
 	}
@@ -168,7 +183,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
         return null;
     }-*/;
 
-    @Override
+    
     /**
      * Important Note : clickHandler added internally by default to handle DataSelectionEvent.
      * In case external clickHandler destroying chart (eg update() method invoked) this will lead
@@ -178,7 +193,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
         return addHandler(clickHandler, ClickEvent.getType());
     }
 
-    @Override
+    
     public HandlerRegistration addDataSelectionHandler(DataSelectionHandler handler) {
         return addHandler(handler, DataSelectionEvent.getType());
     }
@@ -229,7 +244,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
             callbackList.add(callback);
     }
 
-    @Override
+    
     public void setAnimationSteps(int steps) {
         if(steps <= 0)
             throw new IndexOutOfBoundsException("Number of animation steps should be positive. Found '"+steps+"'");
@@ -272,7 +287,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
         }
     }
 
-    @Override
+    
     public void setResponsive(boolean responsive){
         if(!responsive)
             options.clearProperty(RESPONSIVE);
@@ -280,7 +295,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
             options.setProperty(RESPONSIVE, true);
     }
 
-    @Override
+    
     public void setMaintainAspectRatio(boolean aspectRatio){
         if(!aspectRatio)
             options.clearProperty(MAINTAIN_ASPECT_RATIO);

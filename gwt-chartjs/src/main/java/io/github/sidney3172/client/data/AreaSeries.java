@@ -40,6 +40,14 @@ public class AreaSeries extends JavaScriptObject{
 	public final native void setPointStrokeColor(String pointStrokeColor) /*-{
 		this.pointStrokeColor = pointStrokeColor;
 	}-*/;
+	
+	public final native void setPointHighlightFill(String value) /*-{
+		this.pointHighlightFill = value;
+	}-*/;
+	
+	public final native void setPointHighlightStroke(String value) /*-{
+		this.pointHighlightStroke = value;
+	}-*/;
 
 	public final native String[] getData() /*-{
 		return this.data;

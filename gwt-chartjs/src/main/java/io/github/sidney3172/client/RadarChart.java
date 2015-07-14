@@ -1,16 +1,24 @@
 package io.github.sidney3172.client;
 
-import com.google.gwt.core.client.JavaScriptObject;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.user.client.rpc.AsyncCallback;
 import io.github.sidney3172.client.data.AreaChartData;
 import io.github.sidney3172.client.data.AreaChartDataProvider;
+
+import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 
 
 public class RadarChart extends ChartWithScale {
 	
 	private AreaChartDataProvider provider;
 	private boolean scaleShowLabels = false;
+	
+	public RadarChart() {
+		// default constructor
+	}
+	
+	public RadarChart(int width, int height) {
+		super(width, height);
+	}
 	
 	@Override
 	public void draw() {
@@ -21,12 +29,15 @@ public class RadarChart extends ChartWithScale {
 		this.scaleShowLabels = scaleShowLabels;
 	}
 	
-	private native void drawRadar(JavaScriptObject data)/*-{
+	private native void drawRadar(JavaScriptObject data, int width, int height)/*-{
         canvas = this.@io.github.sidney3172.client.Chart::getNativeElement()();
         nativeCanvas = this.@io.github.sidney3172.client.Chart::getNativeCanvas()();
         if(nativeCanvas != null) {
             nativeCanvas.destroy();
         }
+        
+        canvas.width = width;
+		canvas.height = height;
 
         var options = this.@io.github.sidney3172.client.Chart::constructOptions()();
         if(options == null)
@@ -40,7 +51,7 @@ public class RadarChart extends ChartWithScale {
 		if(provider == null)
 			throw new NullPointerException("PieCharDataProvider was not initialized before invoking update()");
 
-        drawRadar(provider.getData());
+        drawRadar(provider.getData(), this.width, this.height);
 	}
 
 	@Override
@@ -52,12 +63,10 @@ public class RadarChart extends ChartWithScale {
 		
 		provider.reload(new AsyncCallback<AreaChartData>() {
 			
-			@Override
 			public void onSuccess(AreaChartData result) {
-                drawRadar(result);
+                drawRadar(result, RadarChart.this.width, RadarChart.this.height);
 			}
 			
-			@Override
 			public void onFailure(Throwable caught) {
 				// TODO Auto-generated method stub
 				

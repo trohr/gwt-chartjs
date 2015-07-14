@@ -24,7 +24,7 @@ public class SeriesBuilder {
 		return this;
 	}
 	
-	public SeriesBuilder withStoreColor(String strokeColor){
+	public SeriesBuilder withStrokeColor(String strokeColor){
 		series.setStrokeColor(strokeColor);
 		return this;
 	}
@@ -36,6 +36,16 @@ public class SeriesBuilder {
 
 	public SeriesBuilder withPointStrokeColor(String pointStrokeColor){
 		series.setPointStrokeColor(pointStrokeColor);
+		return this;
+	}
+	
+	public SeriesBuilder withPointHighlightFill(String pointHighlighFill) {
+		series.setPointHighlightFill(pointHighlighFill);
+		return this;
+	}
+	
+	public SeriesBuilder withPointHighlightStroke(String pointHighlighStroke) {
+		series.setPointHighlightStroke(pointHighlighStroke);
 		return this;
 	}
 	

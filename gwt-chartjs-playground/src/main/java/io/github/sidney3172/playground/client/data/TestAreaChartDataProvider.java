@@ -1,6 +1,5 @@
 package io.github.sidney3172.playground.client.data;
 
-import com.google.gwt.core.client.GWT;
 import io.github.sidney3172.client.data.AreaChartData;
 import io.github.sidney3172.client.data.AreaChartDataProvider;
 import io.github.sidney3172.client.data.AreaSeries;
@@ -15,13 +14,11 @@ public class TestAreaChartDataProvider implements AreaChartDataProvider{
 
 	private AreaChartData data;
 
-	@Override
 	public JavaScriptObject getData() {
         data = createChartData();
 		return data;
 	}
 
-	@Override
 	public void reload(AsyncCallback<AreaChartData> callback) {
 		data = createChartData();
 		callback.onSuccess(data);
@@ -39,7 +36,7 @@ public class TestAreaChartDataProvider implements AreaChartDataProvider{
 		AreaSeries s = SeriesBuilder
 				.create()
 				.withFillColor("rgba(220,220,220,0.5)")
-				.withStoreColor("rgba(220,220,220,1)")
+				.withStrokeColor("rgba(220,220,220,1)")
 				.withPointColor("rgba(220,220,220,1)")
 				.withPointStrokeColor("#fff")
 				.withData(getRandomDigits())
@@ -48,7 +45,7 @@ public class TestAreaChartDataProvider implements AreaChartDataProvider{
 		series.push(SeriesBuilder
 				.create()
 				.withFillColor("rgba(151,187,205,0.5)")
-				.withStoreColor("rgba(151,187,205,1)")
+				.withStrokeColor("rgba(151,187,205,1)")
 				.withPointColor("rgba(151,187,205,1)")
 				.withPointStrokeColor("#fff")
 				.withData(getRandomDigits())

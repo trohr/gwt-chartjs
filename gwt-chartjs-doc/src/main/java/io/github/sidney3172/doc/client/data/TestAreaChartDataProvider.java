@@ -14,12 +14,10 @@ public class TestAreaChartDataProvider implements AreaChartDataProvider{
 
 	private AreaChartData data;
 
-	@Override
 	public JavaScriptObject getData() {
 		return data;
 	}
 
-	@Override
 	public void reload(AsyncCallback<AreaChartData> callback) {
 		data = createChartData();
 		callback.onSuccess(data);
@@ -37,7 +35,7 @@ public class TestAreaChartDataProvider implements AreaChartDataProvider{
 		AreaSeries s = SeriesBuilder
 				.create()
 				.withFillColor("rgba(220,220,220,0.5)")
-				.withStoreColor("rgba(220,220,220,1)")
+				.withStrokeColor("rgba(220,220,220,1)")
 				.withPointColor("rgba(220,220,220,1)")
 				.withPointStrokeColor("#fff")
 				.withData(
@@ -47,7 +45,7 @@ public class TestAreaChartDataProvider implements AreaChartDataProvider{
 		series.push(SeriesBuilder
 				.create()
 				.withFillColor("rgba(151,187,205,0.5)")
-				.withStoreColor("rgba(151,187,205,1)")
+				.withStrokeColor("rgba(151,187,205,1)")
 				.withPointColor("rgba(151,187,205,1)")
 				.withPointStrokeColor("#fff")
 				.withData(

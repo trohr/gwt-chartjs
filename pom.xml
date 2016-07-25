@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.sidney3172</groupId>
 	<artifactId>gwt-chartjs-root</artifactId>
-	<version>0.1.2</version>
+	<version>0.1.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -30,6 +30,13 @@
 		<module>gwt-chartjs-demo</module>
 		<module>gwt-chartjs-doc</module>
 	</modules>
+	
+  <distributionManagement>
+    <snapshotRepository>
+      <id>${elvoris-libs-snapshots-id}</id>
+      <url>${elvoris-libs-snapshots-url}</url>
+    </snapshotRepository>
+  </distributionManagement>
 	
 </project>
 

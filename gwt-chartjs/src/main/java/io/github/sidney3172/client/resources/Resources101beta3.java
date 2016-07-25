@@ -8,13 +8,13 @@ import com.google.gwt.resources.client.TextResource;
  * @author sidney3172
  *
  */
-public interface Resources extends ClientBundle{
+public interface Resources101beta3 extends ClientBundle{
 	
 	/**
 	 * Contains text representation of native chart.js code
 	 * @return
 	 */
-	@Source("js/chart.min.js")
+	@Source("js/chart-1.0.1-beta.3.min.cache.js")
 	TextResource chartJsSource();
 	
 	/**

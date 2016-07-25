@@ -14,7 +14,7 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import io.github.sidney3172.client.event.*;
 import io.github.sidney3172.client.options.*;
 import io.github.sidney3172.client.resources.ChartStyle;
-import io.github.sidney3172.client.resources.Resources;
+import io.github.sidney3172.client.resources.Resources102;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
  */
 public abstract class Chart extends SimplePanel implements HasAnimationCompleteHandlers, HasClickHandlers,HasAnimation, HasDataSelectionEventHandlers, IsResponsive{
 
-    private static Resources resources;
+    private static Resources102 resources;
 
     protected ChartOption options = ChartOption.get();
     protected JavaScriptObject nativeCanvas;
@@ -37,7 +37,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
 	
 	
 	static{
-		resources = GWT.create(Resources.class);
+		resources = GWT.create(Resources102.class);
 	}
 	
 	/**

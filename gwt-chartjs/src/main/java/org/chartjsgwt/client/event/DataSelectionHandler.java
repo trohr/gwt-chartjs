@@ -1,13 +1,13 @@
-package io.github.sidney3172.client.event;
+package org.chartjsgwt.client.event;
 
 import com.google.gwt.event.shared.EventHandler;
 
 /**
- * Handler interface for handling {@link io.github.sidney3172.client.event.AnimationCompleteEvent}
+ * Handler interface for handling {@link DataSelectionEvent}
  * @author sidney3172
  *
  */
-public interface DataSelectionHandler extends EventHandler{
+public interface DataSelectionHandler extends EventHandler {
 
 	/**
 	 * Method will be invoked when animation is complete

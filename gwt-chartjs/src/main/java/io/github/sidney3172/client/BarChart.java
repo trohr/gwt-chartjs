@@ -24,7 +24,8 @@ public class BarChart extends ChartWithScale {
         }
 
         var options = this.@io.github.sidney3172.client.Chart::constructOptions()();
-        nativeCanvas = new $wnd.Chart(canvas.getContext("2d")).Bar(data, options);
+        var ctx = canvas.getContext("2d");
+        nativeCanvas = new $wnd.Chart(ctx, {type: "bar", data: data, options: options});
         this.@io.github.sidney3172.client.Chart::setNativeCanvas(Lcom/google/gwt/core/client/JavaScriptObject;)(nativeCanvas);
 	}-*/;
 

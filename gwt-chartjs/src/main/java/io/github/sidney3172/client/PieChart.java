@@ -1,11 +1,12 @@
 package io.github.sidney3172.client;
 
+import org.chartjsgwt.client.data.SingleSeriesData;
+
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import io.github.sidney3172.client.data.PieChartDataProvider;
-import io.github.sidney3172.client.data.Series;
 
 
 public class PieChart extends ChartWithScale {
@@ -42,10 +43,10 @@ public class PieChart extends ChartWithScale {
 			throw new NullPointerException("PieChartDataProvider not initialized before invoking update()");
 		
 		//TODO: show loading
-		provider.reload(new AsyncCallback<JsArray<Series>>() {
+		provider.reload(new AsyncCallback<JsArray<SingleSeriesData>>() {
 			
 			@Override
-			public void onSuccess(JsArray<Series> result) {
+			public void onSuccess(JsArray<SingleSeriesData> result) {
                 drawPie(provider.getData());
 			}
 			

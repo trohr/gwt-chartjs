@@ -5,11 +5,12 @@ import io.github.sidney3172.client.event.AnimationCompleteHandler;
 import io.github.sidney3172.client.event.HasAnimationCompleteHandlers;
 import io.github.sidney3172.client.options.AnimationCallback;
 import io.github.sidney3172.client.options.HasAnimation;
-import io.github.sidney3172.client.options.IsResponsive;
-import io.github.sidney3172.client.options.Type;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.chartjsgwt.client.options.IsResponsive;
+import org.chartjsgwt.client.options.animation.AnimationType;
 
 public abstract class ChartWithAnimation<T> extends Chart implements IsResponsive, HasAnimation,HasAnimationCompleteHandlers {
 
@@ -43,14 +44,14 @@ public abstract class ChartWithAnimation<T> extends Chart implements IsResponsiv
 
     /**
      * Specify animation easing
-     * Default value is {@link io.github.sidney3172.client.options.Type#EASE_OUT_QUART}
-     * @param type
+     * Default value is {@link org.chartjsgwt.client.options.animation.AnimationType#EASE_OUT_QUART}
+     * @param animationType
      */
-    public void setAnimationType(Type type){
-        if(type == null)
+    public void setAnimationType(AnimationType animationType){
+        if(animationType == null)
             options.clearProperty(ANIMATION_EASING);
         else
-            options.setProperty(ANIMATION_EASING, type.getValue());
+            options.setProperty(ANIMATION_EASING, animationType.getValue());
     }
 
     /**

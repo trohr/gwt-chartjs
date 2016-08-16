@@ -1,4 +1,4 @@
-package io.github.sidney3172.client.resources;
+package org.chartjsgwt.client.resources;
 
 import com.google.gwt.resources.client.CssResource;
 

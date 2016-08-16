@@ -1,9 +1,10 @@
-package io.github.sidney3172.client.options;
+package org.chartjsgwt.client.options.animation;
 
 /**
  * Created by sidney3172 on 12/08/14.
  */
-public enum Type {
+public enum AnimationType
+{
     LINEAR("linear"),
     EASE_IN_QUAD("easeInQuad"),
     EASE_OUT_QUAD("easeOutQuad"),
@@ -38,7 +39,7 @@ public enum Type {
 
     private String value;
 
-    private Type(String value){
+    private AnimationType(String value){
         this.value = value;
     }
 

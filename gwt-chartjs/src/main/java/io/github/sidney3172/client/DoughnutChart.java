@@ -1,10 +1,11 @@
 package io.github.sidney3172.client;
 
+import org.chartjsgwt.client.data.SingleSeriesData;
+
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import io.github.sidney3172.client.data.PieChartDataProvider;
-import io.github.sidney3172.client.data.Series;
 
 
 public class DoughnutChart extends ChartWithScale {
@@ -45,10 +46,10 @@ public class DoughnutChart extends ChartWithScale {
 			throw new NullPointerException("PieCharDataProvider is not initialized before invoking reload()");
 		
 		//TODO: show loading
-		provider.reload(new AsyncCallback<JsArray<Series>>() {
+		provider.reload(new AsyncCallback<JsArray<SingleSeriesData>>() {
 			
 			@Override
-			public void onSuccess(JsArray<Series> result) {
+			public void onSuccess(JsArray<SingleSeriesData> result) {
                 drawDoughnut(result);
 			}
 			

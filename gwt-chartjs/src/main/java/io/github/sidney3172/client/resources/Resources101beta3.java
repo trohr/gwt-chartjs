@@ -1,5 +1,7 @@
 package io.github.sidney3172.client.resources;
 
+import org.chartjsgwt.client.resources.ChartStyle;
+
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
 

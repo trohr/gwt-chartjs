@@ -3,7 +3,7 @@
 <module rename-to="doc">
 
 	<inherits name="com.google.gwt.user.User" />
-	<inherits name="io.github.sidney3172.ChartJs"/>
+	<inherits name="org.chartjsgwt.ChartJs2"/>
 
 	<entry-point class="io.github.sidney3172.doc.client.DocEntryPoint" />
 </module>

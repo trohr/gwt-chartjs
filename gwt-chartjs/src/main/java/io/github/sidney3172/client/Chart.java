@@ -1,6 +1,16 @@
 package io.github.sidney3172.client;
 
-import com.google.gwt.core.client.GWT;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.chartjsgwt.client.ChartJs;
+import org.chartjsgwt.client.event.DataSelectionEvent;
+import org.chartjsgwt.client.event.DataSelectionHandler;
+import org.chartjsgwt.client.event.HasDataSelectionEventHandlers;
+import org.chartjsgwt.client.options.IsResponsive;
+import org.chartjsgwt.client.options.animation.AnimationType;
+import org.chartjsgwt.client.resources.ChartStyle;
+
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.dom.client.CanvasElement;
 import com.google.gwt.dom.client.Document;
@@ -11,13 +21,13 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.SimplePanel;
-import io.github.sidney3172.client.event.*;
-import io.github.sidney3172.client.options.*;
-import io.github.sidney3172.client.resources.ChartStyle;
-import io.github.sidney3172.client.resources.Resources102;
 
-import java.util.ArrayList;
-import java.util.List;
+import io.github.sidney3172.client.event.AnimationCompleteEvent;
+import io.github.sidney3172.client.event.AnimationCompleteHandler;
+import io.github.sidney3172.client.event.HasAnimationCompleteHandlers;
+import io.github.sidney3172.client.options.AnimationCallback;
+import io.github.sidney3172.client.options.ChartOption;
+import io.github.sidney3172.client.options.HasAnimation;
 
 /**
  * Base class for all chart widgets<br/>
@@ -27,18 +37,12 @@ import java.util.List;
  */
 public abstract class Chart extends SimplePanel implements HasAnimationCompleteHandlers, HasClickHandlers,HasAnimation, HasDataSelectionEventHandlers, IsResponsive{
 
-    private static Resources102 resources;
-
     protected ChartOption options = ChartOption.get();
     protected JavaScriptObject nativeCanvas;
 	private CanvasElement canvas;
 	protected ChartStyle style;
     protected List<AnimationCallback> callbackList = new ArrayList<AnimationCallback>();
 	
-	
-	static{
-		resources = GWT.create(Resources102.class);
-	}
 	
 	/**
 	 * This constructor creates new chart instance with custom {@link ChartStyle}
@@ -66,7 +70,7 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
 	 * Constructor creates chart with default style
 	 */
 	public Chart() {
-		this(resources.chartStyle());
+		this(ChartJs.resources().chartStyle());
 	}
 
     private native JavaScriptObject getClickPoints(JavaScriptObject event, JavaScriptObject canvas)/*-{
@@ -210,14 +214,14 @@ public abstract class Chart extends SimplePanel implements HasAnimationCompleteH
 
     /**
      * Specify animation easing
-     * Default value is {@link io.github.sidney3172.client.options.Type#EASE_OUT_QUART}
-     * @param type
+     * Default value is {@link org.chartjsgwt.client.options.animation.AnimationType#EASE_OUT_QUART}
+     * @param animationType
      */
-    public void setAnimationType(Type type){
-        if(type == null)
+    public void setAnimationType(AnimationType animationType){
+        if(animationType == null)
             options.clearProperty(ANIMATION_EASING);
         else
-            options.setProperty(ANIMATION_EASING, type.getValue());
+            options.setProperty(ANIMATION_EASING, animationType.getValue());
     }
 
     /**

@@ -1,11 +1,11 @@
-package io.github.sidney3172.client.data;
+package org.chartjsgwt.client.data;
 
 import com.google.gwt.core.client.JavaScriptObject;
 
 
-public class Series extends JavaScriptObject{
+public class SingleSeriesData extends JavaScriptObject {
 	
-	protected Series() {
+	protected SingleSeriesData() {
 	}
 	
 	public final native double getValue() /*-{

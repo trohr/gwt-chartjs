@@ -1,5 +1,7 @@
 package io.github.sidney3172.demo.client.sections.line;
 
+import org.chartjsgwt.client.event.DataSelectionEvent;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -8,7 +10,6 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
 import io.github.sidney3172.client.LineChart;
-import io.github.sidney3172.client.event.DataSelectionEvent;
 import io.github.sidney3172.client.options.LegendOption;
 import io.github.sidney3172.demo.client.TestAreaChartDataProvider;
 

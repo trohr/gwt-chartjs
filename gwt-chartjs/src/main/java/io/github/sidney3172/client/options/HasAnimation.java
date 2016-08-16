@@ -1,5 +1,7 @@
 package io.github.sidney3172.client.options;
 
+import org.chartjsgwt.client.options.animation.AnimationType;
+
 /**
  * Enum contains types of easing of chart animation
  * @author sidney3172
@@ -27,10 +29,10 @@ public interface HasAnimation{
 
     /**
      * Specify animation easing
-     * Default value is {@link Type#EASE_OUT_QUART}
-     * @param type
+     * Default value is {@link AnimationType#EASE_OUT_QUART}
+     * @param animationType
      */
-    public void setAnimationType(Type type);
+    public void setAnimationType(AnimationType animationType);
 
     /**
      * Add animation callback to handle animation state changes

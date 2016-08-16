@@ -9,22 +9,53 @@ public class AreaSeries extends JavaScriptObject{
 	protected AreaSeries() {
 	}
 	
-	public final native String getFillColor() /*-{
-		return this.fillColor;
+	/**
+	 * Background color.
+	 * See <a href="http://www.chartjs.org/docs/#bar-chart-data-structure">documentation</a>.
+	 */
+	public final native String getBackgroundColor() /*-{
+		return this.backgroundColor;
+	}-*/;
+
+	/**
+	 * Background color.
+	 * See <a href="http://www.chartjs.org/docs/#bar-chart-data-structure">documentation</a>.
+	 * <p>
+	 * TODO allow setting of multiple colors
+	 */
+	public final native void setBackgroundColor(String backgroundColor) /*-{
+		this.backgroundColor = backgroundColor;
+	}-*/;
+
+	public final native String getBorderColor() /*-{
+		return this.borderColor;
+	}-*/;
+
+	public final native void setBorderColor(String borderColor) /*-{
+		this.borderColor = borderColor;
+	}-*/;
+
+	public final native Integer getBorderWidth() /*-{
+		return this.borderWidth;
+	}-*/;
+
+	public final native void setBorderWidth(Integer borderWidth) /*-{
+		this.borderWidth = borderWidth;
 	}-*/;
 	
-	public final native void setFillColor(String fillColor) /*-{
-		this.fillColor = fillColor;
+	public final native String getBorderSkipped() /*-{
+		return this.borderSkipped;
+	}-*/;
+	
+	/**
+	 * Which edge to skip drawing the border for. Options are 'bottom', 'left', 'top', and 'right'
+	 */
+	public final native void setBorderSkipped(String borderSkipped) /*-{
+		this.borderSkipped = borderSkipped;
 	}-*/;
 
-	public final native String getStrokeColor() /*-{
-		return this.strokeColor;
-	}-*/;
-
-	public final native void setStrokeColor(String strokeColor) /*-{
-		this.strokeColor = strokeColor;
-	}-*/;
-
+	
+	
 	public final native String getPointColor() /*-{
 		return this.pointColor;
 	}-*/;

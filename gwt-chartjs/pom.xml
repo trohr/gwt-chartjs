@@ -3,29 +3,34 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>io.github.sidney3172</groupId>
-	<artifactId>gwt-chartjs</artifactId>
-	<version>0.1.3-SNAPSHOT</version>
+	<groupId>org.chartjsgwt</groupId>
+	<artifactId>gwt-chartjs2</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>gwt-chartjs</name>
+	<name>gwt-chartjs2</name>
 	<description>Another one lightweight chart library for Google Web Toolkit project</description>
 	<url>http://github.com/sidney3172/gwt-chartjs</url>
 
 
-    <scm>
-        <connection>scm:git:git://github.com/sidney3172/gwt-chartjs.git</connection>
-        <developerConnection>scm:git:git@github.com:sidney3172/gwt-chartjs.git</developerConnection>
-        <url>http://github.com/sidney3172/gwt-chartjs</url>
-    </scm>
+  <scm>
+      <connection>scm:git:git://github.com/trohr/gwt-chartjs.git</connection>
+      <developerConnection>scm:git:git@github.com:trohr/gwt-chartjs.git</developerConnection>
+      <url>http://github.com/trohr/gwt-chartjs</url>
+  </scm>
 
-    <developers>
-        <developer>
-            <name>Sergey Gibert</name>
-            <email>sergey.gibert@gmail.com</email>
-            <url>http://github.com/sidney3172</url>
-        </developer>
-    </developers>
+  <developers>
+    <developer>
+      <name>Sergey Gibert</name>
+      <email>sergey.gibert@gmail.com</email>
+      <url>http://github.com/sidney3172</url>
+    </developer>
+    <developer>
+      <name>Tomáš Rohrbacher</name>
+      <email>rohrbacher@elvoris.cz</email>
+      <url>http://github.com/trohr</url>
+    </developer>
+  </developers>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

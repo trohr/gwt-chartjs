@@ -19,13 +19,32 @@ public class SeriesBuilder {
         return this;
     }
 
+	/**
+	 * @deprecated Use {@link #withBackgroundColor(String)} instead
+	 */
 	public SeriesBuilder withFillColor(String fillColor){
-		series.setFillColor(fillColor);
+		return withBackgroundColor(fillColor);
+	}
+
+	public SeriesBuilder withBackgroundColor(String fillColor){
+		series.setBackgroundColor(fillColor);
 		return this;
 	}
 	
+	/**
+	 * @deprecated Use {@link #withBorderColor(String)} instead
+	 */
 	public SeriesBuilder withStoreColor(String strokeColor){
-		series.setStrokeColor(strokeColor);
+		return withBorderColor(strokeColor);
+	}
+
+	public SeriesBuilder withBorderColor(String strokeColor){
+		series.setBorderColor(strokeColor);
+		return this;
+	}
+	
+	public SeriesBuilder withBorderWidth(int borderWidth){
+		series.setBorderWidth(borderWidth);
 		return this;
 	}
 	
